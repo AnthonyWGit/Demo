@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corporations list{% endblock %}
+
+{% block body %}
+    <li>Corpo lists</li>
+    {% for entreprise in entreprises %}
+        <li>{{ entreprise.raisonSociale}} {{ entreprise.cp ~ " " ~ entreprise.adresse }}</li> {# ~ is the concatenation operator #}
+    {% endfor %}
+
+    {% for entreprise in entreprises %}
+        <li>{{entreprise}}</li> {# ~ is the concatenation operator #}
+    {% endfor %}
+
+{% endblock %}
