@@ -5,11 +5,7 @@
 {% block body %}
     <li>Corpo lists</li>
     {% for entreprise in entreprises %}
-        <li>{{ entreprise.raisonSociale}} {{ entreprise.cp ~ " " ~ entreprise.adresse }}</li> {# ~ is the concatenation operator #}
-    {% endfor %}
-
-    {% for entreprise in entreprises %}
-        <li>{{entreprise}}</li> {# ~ is the concatenation operator #}
+        <li> <a href="{{ path('display_app_entreprise', { 'id': entreprise.id}) }}"> {{ entreprise.raisonSociale}} </a></li> {# ~ is the concatenation operator #}
     {% endfor %}
 
 {% endblock %}
