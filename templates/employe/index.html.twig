@@ -6,7 +6,9 @@
     <h1>Employees list</h1>
 
     {% for employe in employes %}
-        {{employe}}{{"\n"|nl2br}}
+        <p>
+            <a href=" {{path("display_app_employe", { 'id' : employe.id }) }}"> {{employe}}{{"\n"|nl2br}} </a>
+        </p>
     {% endfor %}
 
 {% endblock %}
