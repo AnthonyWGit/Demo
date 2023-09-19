@@ -4,8 +4,14 @@
 
 {% block body %}
     <li>Corpo lists</li>
+
+    <a href = {{ path('new_entreprise') }} class="btn btn-primary">Add a corpo</a>
+
     {% for entreprise in entreprises %}
-        <li> <a href="{{ path('display_app_entreprise', { 'id': entreprise.id}) }}"> {{ entreprise.raisonSociale}} </a></li> {# ~ is the concatenation operator #}
+        <li> 
+            <a href="{{ path('display_app_entreprise', { 'id': entreprise.id}) }}"> {{ entreprise.raisonSociale}} </a>{# ~ is the concatenation operator #}
+            <a  class="btn btn-success" href="{{ path('edit_entreprise', { 'id': entreprise.id}) }}"> Edit</a>
+        </li>
     {% endfor %}
 
 {% endblock %}
