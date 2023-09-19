@@ -4,5 +4,28 @@
 
 {% block body %}
     <h1>Add an employee</h1>
-    {{ form(formAddEmploye) }}
+    {# {{ form(formAddEmploye) }} #}
+
+    {{ form_start(formAddEmploye) }}
+        <div class="row">
+            <div class="col-sm">
+                {{ form_row(formAddEmploye.nom) }}            
+            </div>
+            <div class="col-sm">
+                {{ form_row(formAddEmploye.prenom) }}            
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                {{ form_row(formAddEmploye.dateDeNaissance) }}
+            </div>
+            <div class="col-sm">
+                {{ form_row(formAddEmploye.dateEmbauche) }}
+            </div>
+        </div>
+        {{ form_row(formAddEmploye.entreprise) }}
+        {{ form_row(formAddEmploye.ville) }}
+        {{ form_row(formAddEmploye.favoriteColor) }}
+        {{ form_row(formAddEmploye.validate) }}
+    {{ form_end(formAddEmploye) }}
 {% endblock %}
