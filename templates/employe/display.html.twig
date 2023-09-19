@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employee details{% endblock %}
+
+{% block body %}
+
+    <p>Employee from</p> <h1> <a href=" {{path("display_app_entreprise", {'id' : employe.entreprise.id}) }}"> {{employe.entreprise.raisonSociale}} </a> </h1>
+
+    <h2>Employee name : {{ employe.nom }}</h2>
+
+    <h2>Employee forname : {{ employe.prenom }}</h2>
+
+    <p>Birth date : 
+        {% if employe.dateDeNaissance %}
+            {{employe.dateDeNaissance |date("D-M-Y")}} </p>
+        {% else %}
+            Employee didn't want to tell their birthdate </p>
+        {% endif %}
+    
+    <p>Age : {% if employe.age != 0 %} years old</p> {% else %} Not given </p> {% endif %}  
+
+    <p>Employement date : {{employe.dateEmbauche |date("D-M-Y")}} </p>
+
+    <p>Location : {{employe.ville}}</p>
+
+    <p>Favorite colour : {{employe.favoriteColor}} </p>
+
+{% endblock %}
