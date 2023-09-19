@@ -33,6 +33,9 @@ class Employe
     #[ORM\Column(length: 50)]
     private ?string $ville = null;
 
+    #[ORM\Column(length: 20)]
+    private ?string $favoriteColor = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,5 +116,32 @@ class Employe
     public function __toString()
     {
         return $this->nom." ".$this->prenom;
+    }
+
+    public function getFavoriteColor(): ?string
+    {
+        return $this->favoriteColor;
+    }
+
+    public function setFavoriteColor(string $favoriteColor): static
+    {
+        $this->favoriteColor = $favoriteColor;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        $now = new \DateTime();
+        if ($this->dateDeNaissance == null)
+        {
+            return null;
+        }
+        else
+        {
+            $interval = $this->dateDeNaissance->diff($now);
+            return $interval->format("%y");            
+        }
+
     }
 }
