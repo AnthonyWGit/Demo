@@ -31,7 +31,9 @@ class Entreprise
     #[ORM\Column(length: 50)]
     private ?string $ville = null;
 
+
     #[ORM\OneToMany(mappedBy: 'entreprise', targetEntity: Employe::class, orphanRemoval: true)]
+    #[ORM\OrderBy(["nom" => "ASC"])]    
     private Collection $employes;
 
     public function __construct()
