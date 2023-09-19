@@ -5,9 +5,13 @@
 {% block body %}
     <h1>Employees list</h1>
 
+    <a class="btn btn-warning" href=" {{ path('new_employe') }}">Add a worker</a>
+    
     {% for employe in employes %}
         <p>
             <a href=" {{path("display_app_employe", { 'id' : employe.id }) }}"> {{employe}}{{"\n"|nl2br}} </a>
+            <a class="btn btn-warning" href=" {{ path('delete_employe' , { 'id' : employe.id }) }}">Fire worker </a>
+
         </p>
     {% endfor %}
 
