@@ -17,7 +17,7 @@
             Employee didn't want to tell their birthdate </p>
         {% endif %}
     
-    <p>Age : {% if employe.age != 0 %} years old</p> {% else %} Not given </p> {% endif %}  
+    <p>Age : {% if employe.age != 0 %} {{ employe.age }} years old</p> {% else %} Not given </p> {% endif %}  
 
     <p>Employement date : {{employe.dateEmbauche |date("D-M-Y")}} </p>
 
