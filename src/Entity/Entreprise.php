@@ -61,6 +61,11 @@ class Entreprise
         return $this->dateCreation;
     }
 
+    public function getDateCreationFr(): ?string
+    {
+        return $this->dateCreation->format('Y-m-d H:i:s');
+    }
+
     public function setDateCreation(\DateTimeInterface $dateCreation): static
     {
         $this->dateCreation = $dateCreation;
@@ -134,8 +139,13 @@ class Entreprise
         return $this;
     }
 
+    public function getAdresseComplete() : ?string
+    {
+        return $this->getAdresse().' '.$this->getCp().' '.$this->getVille();
+    }
+
     public function __toString()
     {
-        return $this->raisonSociale. '(' .$this->ville. ' ) '. $this->cp;
+        return $this->raisonSociale. ' (' .$this->ville. ') '. $this->cp;
     }
 }
