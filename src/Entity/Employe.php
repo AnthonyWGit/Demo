@@ -27,6 +27,7 @@ class Employe
     private ?\DateTimeInterface $dateEmbauche = null;
 
     #[ORM\ManyToOne(inversedBy: 'employes')]
+    
     #[ORM\JoinColumn(nullable: false)]
     private ?Entreprise $entreprise = null;
 
@@ -34,7 +35,7 @@ class Employe
     private ?string $ville = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $favoriteColor = null;
+    private ?string $favorite_color = null;
 
     public function getId(): ?int
     {
@@ -118,18 +119,6 @@ class Employe
         return $this->nom." ".$this->prenom;
     }
 
-    public function getFavoriteColor(): ?string
-    {
-        return $this->favoriteColor;
-    }
-
-    public function setFavoriteColor(string $favoriteColor): static
-    {
-        $this->favoriteColor = $favoriteColor;
-
-        return $this;
-    }
-
     public function getAge(): ?string
     {
         $now = new \DateTime();
@@ -142,6 +131,18 @@ class Employe
             $interval = $this->dateDeNaissance->diff($now);
             return $interval->format("%y");            
         }
-
     }
+
+    public function getFavoriteColor(): ?string
+    {
+        return $this->favorite_color;
+    }
+
+    public function setFavoriteColor(string $favorite_color): static
+    {
+        $this->favorite_color = $favorite_color;
+
+        return $this;
+    }
+    
 }
